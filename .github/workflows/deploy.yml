@@ -21,13 +21,13 @@ jobs:
           sudo apt-get install -y awscli
 
       - name: Extract release zip file
-        run: unzip deploytest1.zip -d release
+        run: unzip deploy-a-amazon-ec2-using-githubaction/ deploytest1.zip -d release
 
       - name: Push to AWS CodeDeploy
         run: |
           aws deploy push \
             --application-name demo \
-            --s3-location s3://terraform-statefile-anil/release/deploytest1.zip \
+            --s3-location s3://terraform-statefile-anil/release \
             --ignore-hidden-files
 
         env:
