@@ -35,4 +35,4 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AKIATYB4TPDA2AMM6XZF}}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.cdikCAS5HEQgh4ViAFSF7l6DlgSTqECcoGPyzmn4}}
-          AWS_DEFAULT_REGION: ap-south-1
+          AWS_DEFAULT_REGION: ap-south- 1
