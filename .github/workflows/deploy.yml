@@ -26,7 +26,8 @@ jobs:
           ls -al
       - name: Upload release zip file to S3
         run: |
-          aws s3 cp deploytest1.zip s3://terraform-statefile-anil/release/deploytest1.zip
+          aws configure list
+          aws s3 cp deploytest1.zip s3://terraform-statefile-anil/release/deploytest1.zip -v
       - name: Push to AWS CodeDeploy
         run: |
           aws deploy create-deployment \
