@@ -24,10 +24,6 @@ jobs:
         run: |
           curl -sSL -o deploytest1.zip "https://github.com/Anil0192yadav/deploy-a-amazon-ec2-using-githubaction/releases/download/deploytest1/deploytest1.zip"
           ls -al
-      - name: Upload release zip file to S3
-        run: |
-          aws configure list
-          aws s3 cp deploytest1.zip s3://terraform-statefile-anil/release/deploytest1.zip -v
       - name: Push to AWS CodeDeploy
         run: |
           aws deploy create-deployment \
