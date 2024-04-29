@@ -23,7 +23,8 @@ jobs:
       - name: Download release zip file
         run: |
           curl -sSL -o deploytest1.zip "https://github.com/Anil0192yadav/deploy-a-amazon-ec2-using-githubaction/releases/download/deploytest1/deploytest1.zip"
-
+          ls -al
+      
       - name: Push to AWS CodeDeploy
         run: |
           aws deploy create-deployment \
