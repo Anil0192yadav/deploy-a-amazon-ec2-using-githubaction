@@ -3,7 +3,7 @@ name: Deploy Release to CodeDeploy
 on:
   push:
     tags:
-      - 'deploytest1' # Specify the tag for the release to trigger the workflow
+      - 'deploytest1' # Specify the tag for the release to trigger the workfloww
 
 jobs:
   deploy:
