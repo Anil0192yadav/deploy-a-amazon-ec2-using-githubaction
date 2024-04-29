@@ -9,7 +9,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: linux-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
@@ -20,17 +20,19 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y awscli
 
-      - name: Extract release zip file
-        run: unzip deploy-a-amazon-ec2-using-githubaction/ deploytest1.zip -d release
+      - name: Download release zip file
+        run: |
+          curl -sSL -o deploytest1.zip "https://github.com/Anil0192yadav/deploy-a-amazon-ec2-using-githubaction/releases/download/deploytest1/deploytest1.zip"
 
       - name: Push to AWS CodeDeploy
         run: |
-          aws deploy push \
+          aws deploy create-deployment \
             --application-name demo \
-            --s3-location s3://terraform-statefile-anil/release \
-            --ignore-hidden-files
+            --deployment-group-name demo \
+            --s3-location bucket=terraform-statefile-anil,key=release/deploytest1.zip \
+            --ignore-application-stop-failures
 
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AKIATYB4TPDA2AMM6XZF }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.cdikCAS5HEQgh4ViAFSF7l6DlgSTqECcoGPyzmn4 }}
-          AWS_DEFAULT_REGION: ap-south-1
+          AWS_ACCESS_KEY_ID: ${{ secrets.AKIATYB4TPDA2AMM6XZF}}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.cdikCAS5HEQgh4ViAFSF7l6DlgSTqECcoGPyzmn4}}
+          AWS_DEFAULT_REGION: ap-south-1
