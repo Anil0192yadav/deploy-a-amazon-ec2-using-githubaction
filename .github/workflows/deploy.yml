@@ -29,7 +29,7 @@ jobs:
           aws deploy create-deployment \
             --application-name demo \
             --deployment-group-name demo \
-            --s3-location bucket=terraform-statefile-anil,key=release/deploytest1.zip,bundleType=zip \
+            --fileb://deploytest1.zip \
             --ignore-application-stop-failures
 
         env:
