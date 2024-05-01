@@ -22,21 +22,18 @@ jobs:
 
       - name: Download release zip file
         run: |
-          curl -sSL -o demo.zip "https://github.com/Anil0192yadav/code-deploy/archive/refs/tags/v0.2.0-alpha.zip"
-          ls -al 
-          sudo apt-get install unzip
-          unzip demo.zip
-          cd demo.zip
-          ls -al
+          curl -sSL -o deploytest1.zip "https://github.com/Anil0192yadav/deploy-a-amazon-ec2-using-githubaction/releases/download/deploytest1/deploytest1.zip"
+	  ls -al
+
       - name: Push to AWS CodeDeploy
         run: |
           aws deploy create-deployment \
-            --application-name demo \
-            --deployment-group-name demo \
-            --file v0.2.0-alpha.zip \
+            --application-name YourCodeDeployApplicationName \
+            --deployment-group-name YourDeploymentGroupName \
+            --file deploytest1.zip \
             --ignore-application-stop-failures
 
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: ap-south-1
+          AWS_DEFAULT_REGION: YourAWSRegion
