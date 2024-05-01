@@ -21,12 +21,9 @@ jobs:
           sudo apt-get install -y awscli
 
       - name: Download release zip file
-        uses: softprops/action-gh-release@v1
-        with:
-          tag: code1
-          repo: Anil0192yadav/deploy-a-amazon-ec2-using-githubaction
-          filename: code1.zip
-
+        run: |
+          curl -L -o code1.zip https://github.com/Anil0192yadav/deploy-a-amazon-ec2-using-githubaction/archive/code1.zip 
+          ls -al
       - name: Push to AWS CodeDeploy
         run: |
           aws deploy create-deployment \
