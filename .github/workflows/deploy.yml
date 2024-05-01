@@ -37,7 +37,7 @@ jobs:
             --application-name demo \
             --deployment-group-name demo \
             --s3-location bucket=terraform-statefile-anil,key=deploy-a-amazon-ec2-using-githubaction-code1.zip\
-            --file ./code1
+            
             --ignore-application-stop-failures
 
         env:
