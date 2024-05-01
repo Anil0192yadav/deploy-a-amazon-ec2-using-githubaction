@@ -21,16 +21,18 @@ jobs:
           sudo apt-get install -y awscli
 
       - name: Download release zip file
-        run: |
-          curl -sSL -o deploytest1.zip "https://github.com/Anil0192yadav/deploy-a-amazon-ec2-using-githubaction/releases/download/deploytest1/deploytest1.zip"
-	  ls -al
+        uses: softprops/action-gh-release@v1
+        with:
+          tag: code1
+          repo: Anil0192yadav/deploy-a-amazon-ec2-using-githubaction
+          filename: code1.zip
 
       - name: Push to AWS CodeDeploy
         run: |
           aws deploy create-deployment \
             --application-name YourCodeDeployApplicationName \
             --deployment-group-name YourDeploymentGroupName \
-            --file deploytest1.zip \
+            --file code1.zip \
             --ignore-application-stop-failures
 
         env:
