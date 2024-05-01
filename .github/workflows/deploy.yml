@@ -25,16 +25,13 @@ jobs:
           curl -L -o code1.zip https://github.com/Anil0192yadav/deploy-a-amazon-ec2-using-githubaction/archive/code1.zip 
           ls -al
 
-      - name: Upload release to temporary S3 location
-        run: |
-         aws s3api put-object --bucket terraform-statefile-anil --key code1.zip --body fileb://code1.zip
-
+      
       - name: Push to AWS CodeDeploy
         run: |
           aws deploy create-deployment \
             --application-name demo \
             --deployment-group-name demo \
-            --s3-location bucket=terraform-statefile-anil,key=code1.zip,bundleType=zip \
+            --file ./code1
             --ignore-application-stop-failures
 
         env:
