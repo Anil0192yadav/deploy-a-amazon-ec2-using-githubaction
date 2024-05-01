@@ -5,11 +5,11 @@ on:
     branches:
       - main
     tags:
-      - 'demo' # Specify the tag for the release to trigger the workflow
+      - 'code1' # Specify the tag for the release to trigger the workflow
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: linux-latest
 
     steps:
       - name: Checkout repository
