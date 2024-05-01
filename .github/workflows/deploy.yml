@@ -22,7 +22,7 @@ jobs:
 
       - name: Download release zip file
         run: |
-          curl -sSL -o demo.zip "https://github.com/Anil0192yadav/deploy-a-amazon-ec2-using-githubaction/archive/refs/tags/v0.2.0-alpha.zip"
+          curl -sSL -o demo.zip "https://github.com/Anil0192yadav/code-deploy/archive/refs/tags/v0.2.0-alpha.zip"
           ls -al 
           sudo apt-get install unzip
           unzip demo.zip
