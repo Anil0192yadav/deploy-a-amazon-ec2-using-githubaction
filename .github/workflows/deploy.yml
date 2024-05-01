@@ -22,9 +22,9 @@ jobs:
 
       - name: Configure AWS credentials
         run: |
-          aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws configure set default.region ap-south-1
+          aws configure set aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws configure set aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws configure set default.region: ap-south-1
       - name: Download release zip file
         run: |
           curl -L -o code1.zip https://github.com/Anil0192yadav/deploy-a-amazon-ec2-using-githubaction/archive/code1.zip 
