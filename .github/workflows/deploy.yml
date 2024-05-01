@@ -27,8 +27,8 @@ jobs:
       - name: Push to AWS CodeDeploy
         run: |
           aws deploy create-deployment \
-            --application-name YourCodeDeployApplicationName \
-            --deployment-group-name YourDeploymentGroupName \
+            --application-name demo \
+            --deployment-group-name demo \
             --file code1.zip \
             --ignore-application-stop-failures
 
