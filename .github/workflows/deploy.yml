@@ -27,7 +27,7 @@ jobs:
 
       - name: Upload release to S3
         run: |
-          aws s3 cp code1.zip s3://terraform-statefile-anil/code1.zip
+          aws s3 cp code1.zip s3://terraform-statefile-anil/code1.zip --debug
 
       - name: Push to AWS CodeDeploy
         run: |
