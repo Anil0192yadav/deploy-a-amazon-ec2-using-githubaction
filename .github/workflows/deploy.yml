@@ -23,7 +23,7 @@ jobs:
       - name: Download release zip file
         run: |
           curl -sSL -o demo.zip "https://github.com/Anil0192yadav/code-deploy/archive/refs/tags/v0.2.0-alpha.zip"
-          ls -al
+          ls -al |grep v0.2.0-alpha.zip
       - name: Push to AWS CodeDeploy
         run: |
           aws deploy create-deployment \
