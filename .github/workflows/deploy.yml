@@ -29,7 +29,7 @@ jobs:
         run: |
           curl -L -o code1.zip https://github.com/Anil0192yadav/deploy-a-amazon-ec2-using-githubaction/archive/code1.zip 
           ls -al
-          aws s3 ls
+         
       
       - name: Push to AWS CodeDeploy
         run: |
