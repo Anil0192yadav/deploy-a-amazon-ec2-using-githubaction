@@ -32,9 +32,9 @@ jobs:
       - name: Upload to S3
         run: |
           # Navigate to the directory containing the code1.zip file
-          cd /home/runner/work/deploy-a-amazon-ec2-using-githubaction/deploy-a-amazon-ec2-using-githubaction
+          
           # Upload the code1.zip file to the S3 bucket
-          aws s3 cp /home/runner/work/deploy-a-amazon-ec2-using-githubaction/deploy-a-amazon-ec2-using-githubaction/code1.zip s3://lovkiran2020/
+          aws s3 cp code1.zip s3://terraform-statefile-anil/
 
       - name: Download release zip file
         run: |
