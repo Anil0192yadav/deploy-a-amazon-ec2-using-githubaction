@@ -29,7 +29,9 @@ jobs:
         run: |
           curl -L -o code1.zip https://github.com/Anil0192yadav/deploy-a-amazon-ec2-using-githubaction/archive/code1.zip 
           ls -al
-         
+      - name: Debug AWS CLI Configuration
+        run: |
+          aws configure list
       
       - name: Push to AWS CodeDeploy
         run: |
